@@ -1,0 +1,12 @@
+{
+  "name": "music-tag-repair",
+  "version": "1.0.0",
+  "description": "Remove unwanted characters from music metadata",
+  "main": "index.js",
+  "repository": "git@github.com:sarangnx/music-tag-repair.git",
+  "author": "Sarang N <sarang98divakaran@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ffmetadata": "^1.5.0"
+  }
+}
