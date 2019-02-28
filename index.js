@@ -19,17 +19,20 @@ function scanDir(files,input_directory,regex){
     for(let file of files){
         let song = path.join(input_directory,file);
         ffmetadata.read(song,(err, data) => {
-            let newData = {
-                title: data.title.replace(regex,'')
-            };
-            ffmetadata.write(song,newData,(err) => {
-                i++;
-                if(err){
-                    console.log(`${ERR} : Write Error`);
-                }else{
-                    console.log(`${INFO} : ${song} changed [ ${i} / ${count} ]`);
-                }
-            });
+            let title = data.title;
+            if(title){
+                let newData = {
+                    title: title.replace(regex,'')
+                };
+                ffmetadata.write(song,newData,(err) => {
+                    i++;
+                    if(err){
+                        console.log(`${ERR} : Write Error`);
+                    }else{
+                        console.log(`${INFO} : ${song} changed [ ${i} / ${count} ]`);
+                    }
+                });
+            }
         });
     }
 }
